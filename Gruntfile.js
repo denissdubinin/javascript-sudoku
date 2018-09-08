@@ -8,7 +8,10 @@ module.exports = function (grunt) {
             'https://github.com/denissdubinin/Javascript-Sudoku - Licensed MIT */\n',
         uglify: {
             options: {
-                banner: '<%= banner %>'
+                banner: '<%= banner %>',
+                output: {
+                    beautify: false
+                }
             },
             dist: {
                 files: {
