@@ -1,0 +1,15 @@
+{
+    "name": "javascript-sudoku-game",
+    "description": "Sudoku game on Javascript (jQuery)",
+    "version": "1.0.0",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/denissdubinin/Javascript-Sudoku.git"
+    },
+    "devDependencies": {
+        "grunt": "^1.0.3",
+        "grunt-contrib-sass": "^0.7.3",
+        "grunt-contrib-uglify-es": "^3.3.0"
+    }
+}
