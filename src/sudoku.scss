@@ -24,6 +24,7 @@
     }
 
     .sudoku-cell {
+        text-align: center;
         padding: 0;
 
         &.invalid-cell input {
@@ -60,6 +61,11 @@
         &:disabled {
             background: #f5f5f5;
             cursor: not-allowed;
+        }
+
+        &.timer-disabled {
+            cursor: not-allowed;
+            
         }
     }
 }
