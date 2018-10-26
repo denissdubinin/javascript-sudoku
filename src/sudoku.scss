@@ -17,13 +17,22 @@
     }
 
     table {
-        width: 370px;
         height: 370px;
+        position: relative;
+        width: 370px;
+
+        .success-overlay {
+            background: rgba(85, 216, 85, .25);
+            height: 100%;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
     }
 
     .sudoku-cell {
-        text-align: center;
         padding: 0;
+        text-align: center;
 
         &.invalid-cell input {
             background: #f9d4d4;

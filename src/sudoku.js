@@ -120,7 +120,7 @@ window.sudoku = {
                 });
 
                 if (checkResults(filledMatrix, window.sudoku.fullMatrix)) {
-                    $(document).trigger('startConfetti'); // TODO: ADD BETTER SUCCESS CALLBACK
+                    $(document).trigger('sudoku.success.on');
                 }
             }
         }
@@ -184,7 +184,7 @@ window.sudoku = {
             $('body').on('click', '#gn-sudoku', function () {
                 var popup = confirm('Are you sure?');
                 if (popup == true) {
-                    $(document).trigger('stopConfetti');
+                    $(document).trigger('sudoku.success.off');
                     $('.sudoku-cell input:disabled:not(.default-cell)').prop('disabled', false);
                     $('.sudoku-cell').removeClass('invalid-cell');
                     $('.sudoku-cell input.default-cell').removeClass('default-cell');
