@@ -15,7 +15,7 @@ window.sudoku = {
                 markWrongCellsOnFinish: true,
                 useTimer: true,
                 timerOnly: true,
-                useCustomButtons: false, // TODO: NOT IMPLEMENT AT ALL
+                useCustomButtons: false,
                 sudokuMixIterations: 500
             },
             options = $.extend({}, defaults, options),
@@ -120,7 +120,7 @@ window.sudoku = {
                 });
 
                 if (checkResults(filledMatrix, window.sudoku.fullMatrix)) {
-                    $(document).trigger('startConfetti');
+                    $(document).trigger('startConfetti'); // TODO: ADD BETTER SUCCESS CALLBACK
                 }
             }
         }
@@ -142,29 +142,34 @@ window.sudoku = {
          * @param {object} element
          */
         function initGridButtons(element) {
-            var buttonGroup = $('<div>').addClass('btn-group'),
-                resetButton = $('<button>').addClass('btn btn-danger btn-sm')
-                .attr('id', 'r-sudoku').text('Reset sudoku'),
-                generateButton = $('<button>').addClass('btn btn-primary btn-sm')
-                .attr('id', 'gn-sudoku').text('Generate new sudoku');
+            if (!options.useCustomButtons) {
+                var buttonGroup = $('<div>').addClass('btn-group'),
+                    resetButton = $('<button>').addClass('btn btn-danger btn-sm')
+                    .attr('id', 'r-sudoku').text('Reset sudoku'),
+                    generateButton = $('<button>').addClass('btn btn-primary btn-sm')
+                    .attr('id', 'gn-sudoku').text('Generate new sudoku');
 
-            if (options.useTimer) {
-                var startButton = $('<button>').addClass('btn btn-success btn-sm')
-                    .attr('id', 'start-sudoku').text('Start');
+                if (options.useTimer) {
+                    var startButton = $('<button>').addClass('btn btn-success btn-sm')
+                        .attr('id', 'start-sudoku').text('Start');
 
-                buttonGroup.append(startButton);
+                    buttonGroup.append(startButton);
+                }
 
-                startButton.on('click', function () {
-                    initTimer(); // DOENST WORK, NOT INITIALISED YET
-                    enableFields(true);
-                    startButton.prop('disabled', true);
-                });
+                buttonGroup.append(resetButton).append(generateButton);
+                element.append(buttonGroup);
             }
 
-            buttonGroup.append(resetButton).append(generateButton);
-            element.append(buttonGroup);
+            $('body').on('click', '#start-sudoku', function () {
+                if (options.useTimer) {
+                    initTimer();
+                }
 
-            $('#r-sudoku').on('click', function () {
+                enableFields(true);
+                startButton.prop('disabled', true);
+            });
+
+            $('body').on('click', '#r-sudoku', function () {
                 var popup = confirm('Are you sure?');
                 if (popup == true) {
                     fillGrid();
@@ -176,7 +181,7 @@ window.sudoku = {
                 }
             });
 
-            $('#gn-sudoku').on('click', function () {
+            $('body').on('click', '#gn-sudoku', function () {
                 var popup = confirm('Are you sure?');
                 if (popup == true) {
                     $(document).trigger('stopConfetti');
