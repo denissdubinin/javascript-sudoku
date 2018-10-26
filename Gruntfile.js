@@ -2,7 +2,6 @@ module.exports = function (grunt) {
 'use strict';
 
     grunt.initConfig({
-    
         pkg: grunt.file.readJSON('package.json'),
         banner: '/*! Javascript Sudoku v<%= pkg.version %> by Deniss Dubinin - ' +
             'https://github.com/denissdubinin/Javascript-Sudoku - Licensed MIT */\n',

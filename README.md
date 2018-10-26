@@ -1,10 +1,14 @@
 # Javascript Sudoku
 
-[![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/denissdubinin/Javascript-sudoku)
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/denissdubinin/javascript-sudoku)
 
 Javascript plugin that generates random sudoku grid.
 
 ![Javascript Sudoku](example.png)
+
+## Demo
+
+https://denissdubinin.github.io/javascript-sudoku/
 
 ## Installation
 
