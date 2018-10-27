@@ -36,5 +36,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
 
     grunt.registerTask('styles', ['sass']);
-    grunt.registerTask('compile', ['uglify', 'sass']);
+    grunt.registerTask('js', ['uglify']);
+    grunt.registerTask('compile', ['styles', 'js']);
 };
